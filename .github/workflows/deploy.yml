@@ -16,6 +16,6 @@ jobs:
         run: sudo apt-get install openssh-client
       
       - name: Deploy code to internal IP server
-        run: scp -r -P 22 ./chae@34.64.236.239:/home/chae/api-manager
+        run: scp -r -P 22 ./ chae@34.64.236.239:/home/chae/api-manager
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
