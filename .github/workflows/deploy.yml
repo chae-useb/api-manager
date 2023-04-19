@@ -19,7 +19,7 @@ jobs:
           known_hosts: 'known-hosts'
 
       - name: Adding Known Hosts
-        run: ssh-keyscan -H 34.64.236.239 >> ./.ssh/known_hosts
+        run: ssh-keyscan -H 34.64.236.239 >> ~/.ssh/known_hosts
 
       - name: Install rsync
         run: |
