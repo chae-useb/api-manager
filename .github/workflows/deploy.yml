@@ -17,7 +17,7 @@ jobs:
 
       - name: Deploy with rsync
         run: |
-          echo ${{ variables.SSH_HOST }}
+          echo ${{ secrets.SSH_PRIVATE_KEY }}
           rsync -avz --delete -e "ssh -i ${{ secrets.SSH_PRIVATE_KEY }}" ./path/to/local/dir/ github@34.64.236.239:/home/github/api-manager
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
