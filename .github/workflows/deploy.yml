@@ -13,7 +13,6 @@ jobs:
         uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: "-rlgoDzvc -i"
           SOURCE: "./"
           REMOTE_HOST: '34.64.236.239'
           REMOTE_USER: 'github'
