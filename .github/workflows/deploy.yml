@@ -21,4 +21,4 @@ jobs:
           rsync -avz --delete -e "ssh -i ${{ secrets.SSH_KEY }}" --exclude '.git*' ./ github@34.64.236.239:/home/github
 
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+          SSH_KEY: ${{ secrets.SSH_KEY }}
