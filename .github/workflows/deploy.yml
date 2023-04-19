@@ -28,6 +28,5 @@ jobs:
 
       - name: Deploy code to server
         run: rsync -avz --delete -e "ssh -i ${{ secrets.SSH_KEY }}" --exclude '.git*' --exclude '*.pem' ./ github@34.64.236.239:/home/github/api-manager
-
         env:
           SSH_KEY: ${{ secrets.SSH_KEY }}
