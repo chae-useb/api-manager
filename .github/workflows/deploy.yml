@@ -13,16 +13,16 @@ jobs:
         uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: "-rlgoDzvc --delete"
-          SOURCE: "./"
+          ARGS: "-rlgoDzvc -i --delete"
+          SOURCE: ""
           REMOTE_HOST: '34.64.236.239'
           REMOTE_USER: 'github'
-          TARGET: '/home/github/api-manager2'
+          TARGET: '/home/github/api-manager'
           EXCLUDE: "/.git/, /*.pem/"
           SCRIPT_BEFORE: |
             whoami
             ls -al
           SCRIPT_AFTER: |
             whoami
-            ls -al ./api-manager2
+            ls -al ./api-manager
             echo $RSYNC_STDOUT
