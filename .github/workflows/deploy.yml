@@ -11,11 +11,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      
-      - name: Install SSH Key
-        uses: actions/ssh-key-action@v2
-        with:
-        key: {%- raw -%} ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Install SSH client
         run: sudo apt-get install openssh-client
