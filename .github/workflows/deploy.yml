@@ -14,11 +14,13 @@ jobs:
 
       - name: Install rsync
         run: sudo apt-get install rsync
-      
+
       - name: Deploy code to server
         run: |
           echo ${{ secrets.SSH_PRIVATE_KEY }}
           rsync -avz --delete -e "ssh -i ${{ secrets.SSH_PRIVATE_KEY }}" --exclude '.git*' ./ chae@34.64.236.239:/home/chae/api-manager
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
 
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
