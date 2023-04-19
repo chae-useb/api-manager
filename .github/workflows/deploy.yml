@@ -18,7 +18,7 @@ jobs:
           REMOTE_HOST: '34.64.236.239'
           REMOTE_USER: 'github'
           TARGET: '/home/github/api-manager'
-          EXCLUDE: "/.git/, /*.pem/"
+          # EXCLUDE: "/.git/, /*.pem/"
           SCRIPT_BEFORE: |
             whoami
             ls -al
