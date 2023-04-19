@@ -12,13 +12,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install SSH client
-        run: sudo apt-get install openssh-client
+      - name: Install rsync
+        run: sudo apt-get install rsync
       
       - name: Deploy code to server
         run: |
           echo ${{ secrets.SSH_PRIVATE_KEY }}
-          rsync -avz -e "ssh -i ${{ secrets.SSH_PRIVATE_KEY }}" --exclude '.git*' ./ chae@34.64.236.239:/home/chae/api-manager
+          rsync -avz --delete -e "ssh -i ${{ secrets.SSH_PRIVATE_KEY }}" --exclude '.git*' ./ chae@34.64.236.239:/home/chae/api-manager
 
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
