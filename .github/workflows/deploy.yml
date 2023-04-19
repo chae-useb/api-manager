@@ -30,3 +30,4 @@ jobs:
             ls -al ./api-manager
             echo $RSYNC_STDOUT
             date > ./api-manager/RELEASE
+            ./startup.sh
