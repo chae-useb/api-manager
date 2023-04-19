@@ -13,8 +13,8 @@ jobs:
         uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: "-rlgoDzvc -i --delete"
-          SOURCE: "/home/runner/work/api-manager/"
+          ARGS: "-rlgoDzvc --delete"
+          SOURCE: "./"
           REMOTE_HOST: '34.64.236.239'
           REMOTE_USER: 'github'
           TARGET: '/home/github/api-manager2'
