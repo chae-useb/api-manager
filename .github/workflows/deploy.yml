@@ -17,12 +17,12 @@ jobs:
           SOURCE: "./"
           REMOTE_HOST: '34.64.236.239'
           REMOTE_USER: 'github'
-          TARGET: '/home/github/api-manager'
+          TARGET: '/home/github/api-manager2'
           EXCLUDE: "/.git/, /*.pem/"
           SCRIPT_BEFORE: |
             whoami
             ls -al
           SCRIPT_AFTER: |
             whoami
-            ls -al ./api-manager
+            ls -al ./api-manager2
             echo $RSYNC_STDOUT
