@@ -16,7 +16,7 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: "-avz -i --delete"
           SOURCE: ""
-          REMOTE_HOST: '34.64.236.239'
+          REMOTE_HOST: ${{ secrets.SSH_HOST }}
           REMOTE_USER: 'github'
           TARGET: '/home/github/api-manager'
           EXCLUDE: "/.git/, /*.pem/"
