@@ -13,7 +13,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install rsync
-        run: sudo apt-get install rsync
+        run: |
+          sudo apt-get install openssh-client
+          sudo apt-get install rsync
 
       - name: Deploy code to server
         run: rsync -avz --delete -e "ssh -i ${{ secrets.SSH_KEY }}" --exclude '.git*' --exclude '*.pem' ./ github@34.64.236.239:/home/github/api-manager
