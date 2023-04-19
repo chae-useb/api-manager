@@ -1,0 +1,32 @@
+name: Deploy to tmp.useb.co.kr
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: 'known-hosts'
+
+      - name: Adding Known Hosts
+        run: ssh-keyscan -H 34.64.236.239 >> ~/.ssh/known_hosts
+
+      - name: Install rsync
+        run: |
+          sudo apt-get install openssh-client
+          sudo apt-get install rsync
+
+      - name: Deploy code to server
+        run: rsync -avz --delete -e "ssh -i ${{ secrets.SSH_PRIVATE_KEY }}" --exclude '.git*' --exclude '*.pem' ./ github@34.64.236.239:/home/github/api-manager
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
