@@ -29,4 +29,4 @@ jobs:
             whoami
             ls -al ./api-manager
             echo $RSYNC_STDOUT
-            date RELEASE
+            date > ./api-manager/RELEASE
